@@ -99,6 +99,13 @@ class Tree:
             else:
                 self.unique_vals_list.append(None)
         
+    def grow(self, sub_idx, metric_func, stop_func,
+             output_func, store_data = False):
+        self.root = SimpleBinaryTreeNode(self, 0, None, store_data)
+        self.root.grow(self, sub_idx, metric_func,
+                       stop_func, output_func)
+        
+        
 class SimpleBinaryTreeNode:
     def __init__(self, tree, level, parent_node, store_data):
         self.tree = tree
